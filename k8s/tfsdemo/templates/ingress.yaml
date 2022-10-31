@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hello-kubernetes
+  namespace: {{ .Values.nameSpace }}
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Values.app.name }}
+                port:
+                  number: 80
+
+# tls:
+#     - hosts:
+#         - hello.abhinva-test.zeeve.net
+#       secretName: terraform-tls-secret
+# hosts: hello.abhinva-test.zeeve.net 

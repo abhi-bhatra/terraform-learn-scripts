@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.app.name }}
+  namespace: {{ .Values.nameSpace }}
+spec:
+  selector:
+    matchLabels:
+      name: {{ .Values.app.name }}
+  template:
+    metadata:
+      labels:
+        name: {{ .Values.app.name }}
+    spec:
+      containers:
+        - name: app
+          image: paulbouwer/hello-kubernetes:1.8
+          ports:
+            - containerPort: 8080

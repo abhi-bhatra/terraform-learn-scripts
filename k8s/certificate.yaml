@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: tls-zeeve
+spec:
+  secretName: tls-demo
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+  commonName: hello.abhinva-test.zeeve.net
+  dnsNames:
+  - hello.abhinva-test.zeeve.net

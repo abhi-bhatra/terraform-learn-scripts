@@ -1,0 +1,4 @@
+nameSpace: helmstaging
+
+app:
+  name: "hello-kubernetes"
